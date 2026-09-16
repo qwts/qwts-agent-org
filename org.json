@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "organization": {
+    "id": "qwts",
+    "account": "qwts",
+    "profile": "governance/organization-profile.json"
+  },
+  "sources": {
+    "sop": {
+      "repo": "qwts/qwts-agent-sop",
+      "ref": "8e9b32fba1dad1147d36c5f0a11cca1fc0a7535a",
+      "entry": "README.md",
+      "summary": "The SOP instance this org follows."
+    }
+  },
+  "capabilities": {
+    "agent-bot": {
+      "repo": "qwts/agent-bot-identity",
+      "ref": "28b5ee1be2f12dcf548d96309d21c4a1c8ad2b9d",
+      "entry": "skills/agent-bot/SKILL.md",
+      "summary": "The agent identity runtime: GitHub App identities, tokens, hooks, and the gh shim."
+    },
+    "managed-machine": {
+      "repo": "qwts/managed-machine",
+      "ref": "8af7142cdb6ab650bd32cfdd6e8e34c95ec134e2",
+      "entry": "skills/SKILL.md",
+      "summary": "Machine setup and orchestration: the self-tapped Homebrew formula, app catalog installs, and account provisioning."
+    },
+    "aca": {
+      "repo": "qwts/agentic-code-analysis",
+      "ref": "0b49ecb70a9c6ef7f44f190256822bced9d4fa20",
+      "entry": "README.md",
+      "summary": "Semantic code analysis: the judge behind the fleet's size ratchets."
+    }
+  }
+}

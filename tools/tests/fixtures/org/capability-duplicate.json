@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "organization": { "id": "example", "account": "example", "profile": "governance/organization-profile.json" },
+  "sources": {
+    "sop": { "repo": "example/example-agent-sop", "ref": "0000000000000000000000000000000000000000", "entry": "README.md", "summary": "The SOP instance this org follows." }
+  },
+  "capabilities": {
+    "ci": { "repo": "example/example-agent-ci", "ref": "0000000000000000000000000000000000000000", "entry": "README.md", "summary": "First copy." },
+    "ci": { "repo": "example/example-agent-ci-2", "ref": "0000000000000000000000000000000000000000", "entry": "README.md", "summary": "Second copy, which JSON.parse keeps." }
+  }
+}

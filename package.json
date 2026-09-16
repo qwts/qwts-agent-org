@@ -1,0 +1,17 @@
+{
+  "name": "qwts-agent-org",
+  "version": "0.1.0",
+  "description": "The qwts instance of agent-org: org.json, the fleet's governance data, and their validators.",
+  "private": true,
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "check": "node tools/org.mjs && node tools/repos.mjs check && node tools/organization-profile.mjs",
+    "test": "node --test tools/tests/*.mjs",
+    "lint:markdown": "markdownlint docs/ README.md AGENTS.md"
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.49.1"
+  }
+}

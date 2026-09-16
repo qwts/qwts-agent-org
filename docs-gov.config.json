@@ -1,0 +1,14 @@
+{
+  "include": ["README.md", "AGENTS.md", "docs/**/*.md"],
+  "indexes": ["README.md"],
+  "tokenBudgets": {
+    "perDoc": 2600
+  },
+  "integrity": {
+    "links": true,
+    "orphans": true,
+    "stalePaths": {
+      "roots": ["docs", "tools", "governance"]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "organization": {
+    "id": "example",
+    "account": "example",
+    "profile": "governance/organization-profile.json"
+  },
+  "sources": {},
+  "capabilities": {
+    "ci": {
+      "repo": "example/example-agent-ci",
+      "ref": "0000000000000000000000000000000000000000",
+      "entry": "README.md",
+      "summary": "Reusable CI workflows and the actions the fleet pins."
+    },
+    "docs-gov": {
+      "repo": "example/docs-gov",
+      "ref": "0000000000000000000000000000000000000000",
+      "entry": "README.md",
+      "summary": "The documentation-governance gate."
+    }
+  }
+}
