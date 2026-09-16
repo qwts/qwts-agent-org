@@ -19,6 +19,7 @@ Capability repositories have no pointers or subdomains of their own: a name such
 - [The governed-repos manifest](docs/manifest.md) — the schema and rules of `governance/repos.json`.
 - [Governed repositories](docs/governed-repos.md) — the fleet, generated from the manifest by `tools/repos.mjs`.
 - [GitHub account](docs/github-account.md) — the account tier the fleet lives under and what depends on it.
+- [Agent bot organization operations](docs/agent-bot-operations.md) — registering, verifying, and handling incidents around the agent Apps in the roster; moved here from agent-sop.
 - [AGENTS.md](AGENTS.md) — agent context for this repository.
 
 ## Pending
