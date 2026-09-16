@@ -23,4 +23,4 @@ Capability repositories have no pointers or subdomains of their own: a name such
 
 ## Pending
 
-`org.json` maps only the capabilities whose repositories already have commits: `agent-bot` (`qwts/agent-bot-identity`), `managed-machine` (`qwts/managed-machine`), and `aca` (`qwts/agentic-code-analysis`). The `ci`, `docs-gov`, `inventory`, and `sdlc` capabilities are being pushed in parallel and will be added, with their commit SHAs, in a follow-up commit.
+`org.json` maps seven capabilities, each pinned to a commit: `agent-bot` (`qwts/agent-bot-identity`), `managed-machine` (`qwts/managed-machine`), `aca` (`qwts/agentic-code-analysis`), `ci` (`qwts/qwts-agent-ci`), `docs-gov` (`qwts/qwts-agent-docs-gov`), `inventory` (`qwts/qwts-agent-inventory`), and `sdlc` (`qwts/qwts-agent-sdlc`). Moving a pin is a reviewed change to this file.

@@ -22,8 +22,8 @@
     },
     "managed-machine": {
       "repo": "qwts/managed-machine",
-      "ref": "8af7142cdb6ab650bd32cfdd6e8e34c95ec134e2",
-      "entry": "skills/SKILL.md",
+      "ref": "6c1af529d1c368c75c4415f6a4c790c4470ead46",
+      "entry": "skills/managed-machine/SKILL.md",
       "summary": "Machine setup and orchestration: the self-tapped Homebrew formula, app catalog installs, and account provisioning."
     },
     "aca": {
@@ -31,6 +31,30 @@
       "ref": "0b49ecb70a9c6ef7f44f190256822bced9d4fa20",
       "entry": "README.md",
       "summary": "Semantic code analysis: the judge behind the fleet's size ratchets."
+    },
+    "ci": {
+      "repo": "qwts/qwts-agent-ci",
+      "ref": "3a5617b287d922e37f262210a1d8750d8217b56d",
+      "entry": "README.md",
+      "summary": "Governed CI: the ci-policy gate, bounded commands, runtime checks and release lifecycles as pinned composite actions."
+    },
+    "docs-gov": {
+      "repo": "qwts/qwts-agent-docs-gov",
+      "ref": "67db7dc9c20bc29222fb605b7ff9432fd58a2a3f",
+      "entry": "README.md",
+      "summary": "The documentation gate and evaluation: a reusable workflow over the docs-gov and docs-eval tools."
+    },
+    "inventory": {
+      "repo": "qwts/qwts-agent-inventory",
+      "ref": "d5746df21099c0394663b35dd16eacd171052a80",
+      "entry": "README.md",
+      "summary": "Report-only dependency and tooling inventory: a reusable workflow, its normalizer and the weekly fleet catalog."
+    },
+    "sdlc": {
+      "repo": "qwts/qwts-agent-sdlc",
+      "ref": "9168b22ad2a7c71938ae12c1c412753773887f04",
+      "entry": "README.md",
+      "summary": "The Copilot SDLC chain: custom agents, slash-command prompts and instructions that run the SOP guides."
     }
   }
 }
