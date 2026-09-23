@@ -8,7 +8,7 @@
   "sources": {
     "sop": {
       "repo": "qwts/qwts-agent-sop",
-      "ref": "c4b082daffc0738f744f020114f2748105c89640",
+      "ref": "878510751cdef2e601a1d9b9583a1aa7a0b72a61",
       "entry": "README.md",
       "summary": "The SOP instance this org follows."
     }
