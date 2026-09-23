@@ -12,7 +12,20 @@
         "exclude": []
       },
       "delta": "",
-      "note": "This repository \u2014 source of the governance it describes. Private since 2026-09-14; renamed the same day from playbook-engineering to dev-steward and then to agent-sop, matching the project domain agentsop.ai (#355). Historical ENG records and SOP changelogs keep the earlier names (supersede-don't-rewrite)."
+      "note": "The public template. Private since 2026-09-14; renamed the same day from playbook-engineering to dev-steward and then to agent-sop, matching the project domain agentsop.ai (#355). Historical ENG records and SOP changelogs keep the earlier names (supersede-don't-rewrite). The qwts instance is qwts-agent-sop. This manifest lives in qwts-agent-org."
+    },
+    {
+      "name": "qwts-agent-sop",
+      "visibility": "public",
+      "publish": false,
+      "status": "active",
+      "sharedCi": true,
+      "codexSync": {
+        "enabled": false,
+        "exclude": []
+      },
+      "delta": "",
+      "note": "The qwts instance of agent-sop: ENG records, shared SOPs, and the SDLC guides. ENG issue numbers stay allocated in agent-sop."
     },
     {
       "name": "overlook",
