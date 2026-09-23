@@ -16,13 +16,13 @@
   "capabilities": {
     "agent-bot": {
       "repo": "qwts/agent-bot-identity",
-      "ref": "28b5ee1be2f12dcf548d96309d21c4a1c8ad2b9d",
+      "ref": "7e1f813347e49df78437098c5415269d8423bc72",
       "entry": "skills/agent-bot/SKILL.md",
       "summary": "The agent identity runtime: GitHub App identities, tokens, hooks, and the gh shim."
     },
     "managed-machine": {
       "repo": "qwts/managed-machine",
-      "ref": "6c1af529d1c368c75c4415f6a4c790c4470ead46",
+      "ref": "32765719ed8bdeea21223366ed8435670e21b47b",
       "entry": "skills/managed-machine/SKILL.md",
       "summary": "Machine setup and orchestration: the self-tapped Homebrew formula, app catalog installs, and account provisioning."
     },
@@ -34,7 +34,7 @@
     },
     "ci": {
       "repo": "qwts/qwts-agent-ci",
-      "ref": "3a5617b287d922e37f262210a1d8750d8217b56d",
+      "ref": "f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa",
       "entry": "README.md",
       "summary": "Governed CI: the ci-policy gate, bounded commands, runtime checks and release lifecycles as pinned composite actions."
     },
