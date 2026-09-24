@@ -50,9 +50,12 @@ the roster cannot drift.
 
 ## Registering or changing an App
 
-1. Create the App under `qwts` with the exact roster slug, no webhook, no
+1. Create the App under `qwts` with the exact roster slug, no
    user-to-server OAuth, and only Contents, Pull requests, and Issues read/write
-   plus Metadata read.
+   plus Metadata read. Set its webhook to
+   `https://gh-app-hook.qwts.org/github/<slug>`, active, and subscribe it to
+   `pull_request` and `issue_comment`. The webhook secret stays in `pass-cli`,
+   not in a repository.
 2. Install it on every active and onboarding repository in
    [`governance/repos.json`](../governance/repos.json).
 3. Add or update its row in
