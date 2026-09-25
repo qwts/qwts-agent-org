@@ -44,15 +44,7 @@
       "sharedCi": false,
       "codexSync": {
         "enabled": true,
-        "exclude": [],
-        "preserveJsonArrayEntries": {
-          ".claude/settings.json": [
-            "scripts/guard-session-context.mjs",
-            "scripts/guard-agent-command.mjs"
-          ],
-          ".codex/hooks.json": ["scripts/guard-agent-command.mjs"],
-          ".cursor/hooks.json": ["scripts/guard-agent-command.mjs"]
-        }
+        "exclude": []
       },
       "delta": "Coverage floor 71% lines / 80% branches; acceptance coverage-map update for UI/content changes.",
       "note": ""
@@ -95,13 +87,7 @@
         "exclude": [
           "governance/agent-models.json",
           "tools/models/registry.mjs"
-        ],
-        "preserveJsonArrayEntries": {
-          ".claude/settings.json": ["agent-bot agent-hook"],
-          ".codex/hooks.json": ["agent-bot agent-hook"],
-          ".cursor/hooks.json": ["agent-bot agent-hook"],
-          ".windsurf/hooks.json": ["agent-bot agent-hook"]
-        }
+        ]
       },
       "delta": "Canonical ENG-0151 home of the model registry pair, so the retired registry paths are excluded from sync retraction \u2014 deleting them here would delete the originals.",
       "note": "Standalone source of truth for agent identity runtime code and operational mechanics (ENG-0128)."
