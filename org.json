@@ -8,7 +8,7 @@
   "sources": {
     "sop": {
       "repo": "qwts/qwts-agent-sop",
-      "ref": "8547f32ee890a3960e7f497de5d94cf080e04318",
+      "ref": "2f9005d052957d3760bee6ba3800f174daeebb1c",
       "entry": "README.md",
       "summary": "The SOP instance this org follows."
     }
@@ -34,7 +34,7 @@
     },
     "ci": {
       "repo": "qwts/qwts-agent-ci",
-      "ref": "f651d5e6aa17ebee3d5956b45c0378cbcf9c29fa",
+      "ref": "518948bdfaa8f64a9fc5803f339fe32f8dc0c62e",
       "entry": "README.md",
       "summary": "Governed CI: the ci-policy gate, bounded commands, runtime checks and release lifecycles as pinned composite actions."
     },
