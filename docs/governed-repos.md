@@ -29,4 +29,5 @@ The human-readable view of `governance/repos.json`, the manifest of repositories
 | `moonsweeper` | public | active | no | managed | — |
 | `managed-machine` | private | active | no | disabled | — |
 | `managed-machine-config` | private | active | no | disabled | — |
+| `qwts-agent-ci` | public | onboarding | yes | disabled | — |
 <!-- END GENERATED governed-repos -->
