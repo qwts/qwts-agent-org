@@ -24,6 +24,7 @@ The human-readable view of `governance/repos.json`, the manifest of repositories
 | `agentic-code-analysis` | public | active | no | managed | — |
 | `localnotes` | public | active | no | managed | — |
 | `universal-agentic-workflow` | private | onboarding | no | managed | — |
+| `agent-comms` | private | onboarding | no | managed | — |
 | `diagram-dreamer` | public | active | no | managed | Playwright gates per ?state= fixture, axe-core at WCAG 2.1 AA, and a pseudo-localization build. |
 | `jwt-decoder` | public | active | no | managed | — |
 | `moonsweeper` | public | active | no | managed | — |
