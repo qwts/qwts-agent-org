@@ -8,7 +8,7 @@
   "sources": {
     "sop": {
       "repo": "qwts/qwts-agent-sop",
-      "ref": "2f9005d052957d3760bee6ba3800f174daeebb1c",
+      "ref": "e8da0ea0c96038dadfe704d0f23c1a4d12814c47",
       "entry": "README.md",
       "summary": "The SOP instance this org follows."
     }
@@ -22,13 +22,13 @@
     },
     "managed-machine": {
       "repo": "qwts/managed-machine",
-      "ref": "32765719ed8bdeea21223366ed8435670e21b47b",
+      "ref": "436631ede68f2315df84f04a613c974095fbf29a",
       "entry": "skills/managed-machine/SKILL.md",
       "summary": "Machine setup and orchestration: the self-tapped Homebrew formula, app catalog installs, and account provisioning."
     },
     "aca": {
       "repo": "qwts/agentic-code-analysis",
-      "ref": "0b49ecb70a9c6ef7f44f190256822bced9d4fa20",
+      "ref": "4420cb4cfd13d4c975004fa11bfff2fda687de4e",
       "entry": "README.md",
       "summary": "Semantic code analysis: the judge behind the fleet's size ratchets."
     },
