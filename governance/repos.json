@@ -138,6 +138,14 @@
       "note": "Private during the M0 cleanup window; onboarding to the repository baseline. Roadmap: https://github.com/qwts/universal-agentic-workflow/blob/main/docs/product/roadmap-v1.md."
     },
     {
+      "name": "agent-comms",
+      "visibility": "private",
+      "status": "onboarding",
+      "sharedCi": false,
+      "delta": "",
+      "note": "Harness-independent agent communication for the qwts fleet, built on the agent-bot daemon: peer messaging, tasks, A2A, and a local broker between persona accounts. Created 2026-09-30; onboarding to the repository baseline. Recorded per #30."
+    },
+    {
       "name": "diagram-dreamer",
       "visibility": "public",
       "publish": true,
