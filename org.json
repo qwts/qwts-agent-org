@@ -22,7 +22,7 @@
     },
     "managed-machine": {
       "repo": "qwts/managed-machine",
-      "ref": "32765719ed8bdeea21223366ed8435670e21b47b",
+      "ref": "436631ede68f2315df84f04a613c974095fbf29a",
       "entry": "skills/managed-machine/SKILL.md",
       "summary": "Machine setup and orchestration: the self-tapped Homebrew formula, app catalog installs, and account provisioning."
     },
