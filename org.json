@@ -16,7 +16,7 @@
   "capabilities": {
     "agent-bot": {
       "repo": "qwts/agent-bot-identity",
-      "ref": "e928f6a9c7498898fe290f6de1a0932718e136af",
+      "ref": "0aae907e68946cce654757c36b1c24f1942971a9",
       "entry": "skills/agent-bot/SKILL.md",
       "summary": "The agent identity runtime: GitHub App identities, tokens, hooks, and the gh shim."
     },
