@@ -172,5 +172,11 @@
       "harness": "zcode",
       "status": "active"
     }
-  ]
+  ],
+  "settings": {
+    "unmanaged_authors": [
+      "ai9d"
+    ],
+    "keyd_team_id": "Z5DM34QS5U"
+  }
 }
