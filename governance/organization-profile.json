@@ -10,6 +10,7 @@
     "claude": "qwts-claude-agent",
     "cline": "qwts-cline-agent",
     "codex": "qwts-codex-agent",
+    "commandcode": "qwts-commandcode-agent",
     "copilot": "qwts-copilot-agent",
     "cursor": "qwts-cursor-agent",
     "deepseek": "qwts-deepseek-agent",
@@ -18,6 +19,7 @@
     "goose": "qwts-goose-agent",
     "grok": "qwts-grok-agent",
     "hermes": "qwts-hermes-agent",
+    "junie": "qwts-junie-agent",
     "kiro": "qwts-kiro-agent",
     "muse": "qwts-muse-agent",
     "opencode": "qwts-opencode-agent",
@@ -93,6 +95,11 @@
       "status": "retired"
     },
     {
+      "slug": "qwts-commandcode-agent",
+      "harness": "commandcode",
+      "status": "active"
+    },
+    {
       "slug": "qwts-copilot-agent",
       "harness": "copilot",
       "status": "active"
@@ -130,6 +137,11 @@
     {
       "slug": "qwts-hermes-agent",
       "harness": "hermes",
+      "status": "active"
+    },
+    {
+      "slug": "qwts-junie-agent",
+      "harness": "junie",
       "status": "active"
     },
     {
