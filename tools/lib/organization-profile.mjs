@@ -26,6 +26,7 @@ export const RUNTIME_PROFILE_INTERFACE_VERSION = 1;
 export const PROFILE_HARNESS_BY_ROSTER = Object.freeze({
   'claude-code': 'claude',
   codex: 'codex',
+  'command-code': 'commandcode',
   copilot: 'copilot',
   cursor: 'cursor',
   devin: 'devin',
@@ -38,6 +39,7 @@ export const PROFILE_HARNESS_BY_ROSTER = Object.freeze({
   goose: 'goose',
   grok: 'grok',
   hermes: 'hermes',
+  junie: 'junie',
   kiro: 'kiro',
   opencode: 'opencode',
   pi: 'pi',
