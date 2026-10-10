@@ -217,6 +217,9 @@
       "publish": false,
       "status": "onboarding",
       "sharedCi": false,
+      "codexSync": {
+        "enabled": false
+      },
       "delta": ""
     },
     {
@@ -225,6 +228,9 @@
       "publish": false,
       "status": "onboarding",
       "sharedCi": true,
+      "codexSync": {
+        "enabled": false
+      },
       "delta": ""
     },
     {
@@ -233,6 +239,9 @@
       "publish": false,
       "status": "onboarding",
       "sharedCi": false,
+      "codexSync": {
+        "enabled": false
+      },
       "delta": ""
     },
     {
@@ -241,6 +250,9 @@
       "publish": false,
       "status": "onboarding",
       "sharedCi": false,
+      "codexSync": {
+        "enabled": false
+      },
       "delta": ""
     },
     {
@@ -249,6 +261,9 @@
       "publish": false,
       "status": "onboarding",
       "sharedCi": false,
+      "codexSync": {
+        "enabled": false
+      },
       "delta": ""
     }
   ]
