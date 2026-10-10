@@ -101,7 +101,7 @@ function validateSettings(settings) {
     && (typeof settings.spaces_root !== 'string'
       || !settings.spaces_root.startsWith('/')
       || settings.spaces_root.includes('\0'))) {
-    errors.push('settings.spaces_root must be an absolute path');
+    errors.push('settings.spaces_root must be an absolute path without NUL bytes');
   }
   if (settings.daemon_preference !== undefined
     && (typeof settings.daemon_preference !== 'string' || !DAEMON_PREFERENCES.has(settings.daemon_preference))) {

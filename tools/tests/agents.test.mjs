@@ -48,7 +48,7 @@ test('roster settings are optional, and unknown or loosening values fail', () =>
   assert.match(validateAgents({ ...base, settings: { keyd_team_id: 'short' } })[0] ?? '', /keyd_team_id/);
   assert.match(validateAgents({ ...base, settings: { keyd_identifier: 'any-developer-id' } })[0] ?? '', /keyd_identifier/);
   assert.match(validateAgents({ ...base, settings: { spaces_root: 'relative' } })[0] ?? '', /spaces_root/);
-  assert.match(validateAgents({ ...base, settings: { spaces_root: '/tmp/agent\0spaces' } })[0] ?? '', /spaces_root/);
+  assert.match(validateAgents({ ...base, settings: { spaces_root: '/tmp/agent\0spaces' } })[0] ?? '', /absolute path without NUL bytes/);
   for (const daemon_preference of ['off', 'prefer', 'required']) {
     assert.deepEqual(validateAgents({ ...base, settings: { daemon_preference } }), []);
   }
