@@ -224,7 +224,7 @@
       "visibility": "public",
       "publish": false,
       "status": "onboarding",
-      "sharedCi": false,
+      "sharedCi": true,
       "delta": ""
     },
     {
