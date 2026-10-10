@@ -71,6 +71,25 @@ the roster cannot drift.
 5. Run the roster tests, governance drift, and `agent-bot doctor` before using
    the App for repository writes.
 
+## Machine settings in the profile
+
+The roster's optional `settings` block projects into the profile's `settings`
+unchanged, and `node tools/organization-profile.mjs --write` regenerates it
+with the rest. The runtime reads the following keys at bootstrap:
+
+| Key | What it sets |
+| --- | --- |
+| `unmanaged_authors` | Human commit authors the hooks treat as unmanaged (agent-bot-identity#675) |
+| `keyd_team_id` | The Developer ID team keyd must be signed by before its presence key is pinned (agent-bot-identity#594) |
+| `keyd_identifier` | keyd's code-signing identifier, when it isn't the default |
+| `spaces_root` | Where agent spaces live |
+| `daemon_preference` | How the daemon is supervised |
+
+The runtime rejects a profile with a settings key it doesn't know, so only
+publish a key once every machine runs an agent-bot release that accepts it.
+`unmanaged_authors` needs 0.10.59 or later. `keyd_team_id` needs the first
+release after agent-bot-identity#759.
+
 The App that authors a pull request cannot approve it. The required approval
 comes from the human `qwts` account; no bot approval or admin bypass substitutes
 for that review.

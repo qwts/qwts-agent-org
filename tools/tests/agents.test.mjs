@@ -37,3 +37,15 @@ test('malformed rosters fail rather than silently shrinking what is provisioned'
   assert.match(validateAgents({ account: 'example' })[0] ?? '', /agents must be an array/);
   assert.match(validateAgents({ account: 'example', agents: [], extra: 1 })[0] ?? '', /roster has unknown field "extra"/);
 });
+
+test('roster settings are optional, and unknown or loosening values fail', () => {
+  const base = { account: 'example', agents: [ok] };
+  assert.deepEqual(validateAgents({ ...base, settings: { unmanaged_authors: ['ai9d'], keyd_team_id: 'Z5DM34QS5U' } }), []);
+  assert.match(validateAgents({ ...base, settings: [] })[0] ?? '', /settings must be an object/);
+  assert.match(validateAgents({ ...base, settings: { typo: 1 } })[0] ?? '', /settings has unknown field "typo"/);
+  assert.match(validateAgents({ ...base, settings: { unmanaged_authors: ['AI9D'] } })[0] ?? '', /unmanaged_authors/);
+  assert.match(validateAgents({ ...base, settings: { unmanaged_authors: ['a', 'a'] } })[0] ?? '', /unmanaged_authors/);
+  assert.match(validateAgents({ ...base, settings: { keyd_team_id: 'short' } })[0] ?? '', /keyd_team_id/);
+  assert.match(validateAgents({ ...base, settings: { keyd_identifier: 'any-developer-id' } })[0] ?? '', /keyd_identifier/);
+  assert.match(validateAgents({ ...base, settings: { spaces_root: 'relative' } })[0] ?? '', /spaces_root/);
+});

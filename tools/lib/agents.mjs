@@ -15,7 +15,13 @@ import { readFileSync } from 'node:fs';
 
 export const VALID_AGENT_STATUS = ['active', 'retired'];
 const AGENT_FIELDS = new Set(['slug', 'harness', 'status', 'note']);
-const ROSTER_FIELDS = new Set(['account', 'agents']);
+const ROSTER_FIELDS = new Set(['account', 'agents', 'settings']);
+// Machine settings the organization profile carries for the runtime
+// (agent-bot organization profile `settings`). The runtime validates them again
+// against its own schema; this keeps a typo from reaching a published profile.
+export const PROFILE_SETTINGS = Object.freeze([
+  'spaces_root', 'daemon_preference', 'unmanaged_authors', 'keyd_team_id', 'keyd_identifier',
+]);
 
 export function loadAgents(agentsPath) {
   let raw;
@@ -43,6 +49,7 @@ export function validateAgents(roster) {
   if (typeof roster.account !== 'string' || roster.account.trim() === '') {
     errors.push('account must be a non-empty string');
   }
+  if (roster.settings !== undefined) errors.push(...validateSettings(roster.settings));
   if (!Array.isArray(roster.agents)) {
     errors.push('agents must be an array');
     return errors;
@@ -78,6 +85,45 @@ export function validateAgents(roster) {
       errors.push(`${where}.note must be a string when present`);
     }
   });
+  return errors;
+}
+
+function validateSettings(settings) {
+  if (settings === null || typeof settings !== 'object' || Array.isArray(settings)) {
+    return ['settings must be an object when present'];
+  }
+  const errors = [];
+  for (const field of Object.keys(settings)) {
+    if (!PROFILE_SETTINGS.includes(field)) errors.push(`settings has unknown field ${JSON.stringify(field)}`);
+  }
+  if (settings.spaces_root !== undefined
+    && (typeof settings.spaces_root !== 'string' || !settings.spaces_root.startsWith('/'))) {
+    errors.push('settings.spaces_root must be an absolute path');
+  }
+  if (settings.daemon_preference !== undefined
+    && (typeof settings.daemon_preference !== 'string' || settings.daemon_preference.trim() === '')) {
+    errors.push('settings.daemon_preference must be a non-empty string');
+  }
+  if (settings.unmanaged_authors !== undefined) {
+    const authors = settings.unmanaged_authors;
+    if (!Array.isArray(authors) || authors.length > 64
+      || !authors.every((author) => typeof author === 'string' && /^[a-z0-9][a-z0-9._@+-]{0,99}$/.test(author))
+      || new Set(authors).size !== authors.length) {
+      errors.push('settings.unmanaged_authors must be at most 64 distinct lowercase logins');
+    }
+  }
+  // A profile names one Developer ID team for keyd; it can never loosen the
+  // check to any Developer ID (agent-bot-identity#594).
+  if (settings.keyd_team_id !== undefined
+    && (typeof settings.keyd_team_id !== 'string' || !/^[A-Z0-9]{10}$/.test(settings.keyd_team_id))) {
+    errors.push('settings.keyd_team_id must be a 10-character Team ID (A-Z, 0-9)');
+  }
+  if (settings.keyd_identifier !== undefined
+    && (typeof settings.keyd_identifier !== 'string'
+      || !/^[A-Za-z0-9][A-Za-z0-9.-]{0,254}$/.test(settings.keyd_identifier)
+      || settings.keyd_identifier === 'any-developer-id')) {
+    errors.push('settings.keyd_identifier must be a specific code-signing identifier');
+  }
   return errors;
 }
 
