@@ -88,6 +88,19 @@ test('Mirror is mapped to its harness-level App', () => {
   assert.ok(profile.identities.some(({ slug, harness }) => slug === 'example-mirror-agent' && harness === 'mirror'));
 });
 
+test('Junie and Command Code are independently mapped to their harness-level Apps', () => {
+  const profile = projectOrganizationProfile(roster(
+    { slug: 'example-junie-agent', harness: 'junie', status: 'active' },
+    { slug: 'example-commandcode-agent', harness: 'command-code', status: 'active' },
+  ));
+  assert.deepEqual(profile.defaults, {
+    commandcode: 'example-commandcode-agent',
+    junie: 'example-junie-agent',
+  });
+  assert.ok(profile.identities.some(({ slug, harness }) => slug === 'example-junie-agent' && harness === 'junie'));
+  assert.ok(profile.identities.some(({ slug, harness }) => slug === 'example-commandcode-agent' && harness === 'commandcode'));
+});
+
 test('the default App is account-harness-agent and must be an active matching identity', () => {
   assert.equal(defaultSlugFor('example', 'claude'), 'example-claude-agent');
   const profile = projectOrganizationProfile(roster(claudeDefault, claudeModel));
