@@ -16,6 +16,7 @@ import { readFileSync } from 'node:fs';
 export const VALID_AGENT_STATUS = ['active', 'retired'];
 const AGENT_FIELDS = new Set(['slug', 'harness', 'status', 'note']);
 const ROSTER_FIELDS = new Set(['account', 'agents', 'settings']);
+const DAEMON_PREFERENCES = new Set(['off', 'prefer', 'required']);
 // Machine settings the organization profile carries for the runtime
 // (agent-bot organization profile `settings`). The runtime validates them again
 // against its own schema; this keeps a typo from reaching a published profile.
@@ -97,12 +98,14 @@ function validateSettings(settings) {
     if (!PROFILE_SETTINGS.includes(field)) errors.push(`settings has unknown field ${JSON.stringify(field)}`);
   }
   if (settings.spaces_root !== undefined
-    && (typeof settings.spaces_root !== 'string' || !settings.spaces_root.startsWith('/'))) {
-    errors.push('settings.spaces_root must be an absolute path');
+    && (typeof settings.spaces_root !== 'string'
+      || !settings.spaces_root.startsWith('/')
+      || settings.spaces_root.includes('\0'))) {
+    errors.push('settings.spaces_root must be an absolute path without NUL bytes');
   }
   if (settings.daemon_preference !== undefined
-    && (typeof settings.daemon_preference !== 'string' || settings.daemon_preference.trim() === '')) {
-    errors.push('settings.daemon_preference must be a non-empty string');
+    && (typeof settings.daemon_preference !== 'string' || !DAEMON_PREFERENCES.has(settings.daemon_preference))) {
+    errors.push(`settings.daemon_preference must be one of ${[...DAEMON_PREFERENCES].join(', ')}`);
   }
   if (settings.unmanaged_authors !== undefined) {
     const authors = settings.unmanaged_authors;
