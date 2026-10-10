@@ -210,6 +210,46 @@
       },
       "delta": "",
       "note": "The ci capability that org.json pins: shared CI composite actions, the CI policy classifier, runtime budgets, and pin reachability, consumed by commit SHA. Split out of agent-sop under ENG-0355 on 2026-09-16; its own CI is the minimal consumer of the actions it ships. Recorded 2026-09-27 per #25. codexSync disabled \u2014 records governed state only."
+    },
+    {
+      "name": "qwts-agent-docs-gov",
+      "visibility": "public",
+      "publish": false,
+      "status": "onboarding",
+      "sharedCi": false,
+      "delta": ""
+    },
+    {
+      "name": "qwts-agent-inventory",
+      "visibility": "public",
+      "publish": false,
+      "status": "onboarding",
+      "sharedCi": false,
+      "delta": ""
+    },
+    {
+      "name": "qwts-agent-sdlc",
+      "visibility": "public",
+      "publish": false,
+      "status": "onboarding",
+      "sharedCi": false,
+      "delta": ""
+    },
+    {
+      "name": "qwts-agent-org",
+      "visibility": "public",
+      "publish": false,
+      "status": "onboarding",
+      "sharedCi": false,
+      "delta": ""
+    },
+    {
+      "name": "GeniusBar",
+      "visibility": "public",
+      "publish": false,
+      "status": "onboarding",
+      "sharedCi": false,
+      "delta": ""
     }
   ]
 }
