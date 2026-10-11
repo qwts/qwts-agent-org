@@ -92,7 +92,7 @@ export function projectOrganizationProfile(roster, { organization } = {}) {
     defaults[harness] = slug;
   }
 
-  return {
+  const profile = {
     schema_version: ORGANIZATION_PROFILE_SCHEMA_VERSION,
     organization: label,
     account_owner: roster.account,
@@ -100,6 +100,12 @@ export function projectOrganizationProfile(roster, { organization } = {}) {
     defaults,
     identities,
   };
+  // Settings pass through from the roster unchanged; an empty block is left out
+  // so a roster without settings projects exactly as before.
+  if (roster.settings && Object.keys(roster.settings).length > 0) {
+    profile.settings = structuredClone(roster.settings);
+  }
+  return profile;
 }
 
 export function renderOrganizationProfile(profile) {

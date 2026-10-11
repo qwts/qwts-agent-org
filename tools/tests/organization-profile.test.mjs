@@ -170,3 +170,13 @@ test('check fails until --write, then matches the roster and keeps the label acr
   assert.match(stale.output, /out of date/);
   rmSync(root, { recursive: true, force: true });
 });
+
+test('roster settings pass through to the profile, and no settings means no block', () => {
+  const settings = { unmanaged_authors: ['ai9d'], keyd_team_id: 'Z5DM34QS5U' };
+  const projected = projectOrganizationProfile({ ...roster(claudeDefault), settings });
+  assert.deepEqual(projected.settings, settings);
+  assert.notEqual(projected.settings, settings, 'the projection copies rather than aliases the roster');
+  assert.equal('settings' in projectOrganizationProfile(roster(claudeDefault)), false);
+  assert.equal('settings' in projectOrganizationProfile({ ...roster(claudeDefault), settings: {} }), false);
+  assert.throws(() => projectOrganizationProfile({ ...roster(claudeDefault), settings: { typo: 1 } }), /unknown field "typo"/);
+});

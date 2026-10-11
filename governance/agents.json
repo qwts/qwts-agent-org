@@ -175,5 +175,10 @@
       "status": "retired",
       "note": "Retired 2026-09-01 with the move to harness-level identity (ENG-0339)."
     }
-  ]
+  ],
+  "settings": {
+    "unmanaged_authors": [
+      "ai9d"
+    ]
+  }
 }
