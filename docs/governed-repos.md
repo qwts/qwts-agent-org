@@ -31,4 +31,9 @@ The human-readable view of `governance/repos.json`, the manifest of repositories
 | `managed-machine` | private | active | no | disabled | — |
 | `managed-machine-config` | private | active | no | disabled | — |
 | `qwts-agent-ci` | public | onboarding | yes | disabled | — |
+| `qwts-agent-docs-gov` | public | onboarding | no | disabled | — |
+| `qwts-agent-inventory` | public | onboarding | yes | disabled | — |
+| `qwts-agent-sdlc` | public | onboarding | no | disabled | — |
+| `qwts-agent-org` | public | onboarding | no | disabled | — |
+| `GeniusBar` | public | onboarding | no | disabled | — |
 <!-- END GENERATED governed-repos -->
