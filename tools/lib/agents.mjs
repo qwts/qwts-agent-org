@@ -12,6 +12,7 @@
 // rather than being ignored.
 
 import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
 export const VALID_AGENT_STATUS = ['active', 'retired'];
 const AGENT_FIELDS = new Set(['slug', 'harness', 'status', 'note']);
@@ -97,9 +98,13 @@ function validateSettings(settings) {
   for (const field of Object.keys(settings)) {
     if (!PROFILE_SETTINGS.includes(field)) errors.push(`settings has unknown field ${JSON.stringify(field)}`);
   }
+  // The runtime checks spaces_root with node:path isAbsolute on the machine it
+  // runs on, and a profile may reach both macOS/Linux and Windows hosts, so
+  // either form of absolute path is accepted here.
   if (settings.spaces_root !== undefined
     && (typeof settings.spaces_root !== 'string'
-      || !settings.spaces_root.startsWith('/')
+      || settings.spaces_root.length === 0
+      || !(path.posix.isAbsolute(settings.spaces_root) || path.win32.isAbsolute(settings.spaces_root))
       || settings.spaces_root.includes('\0'))) {
     errors.push('settings.spaces_root must be an absolute path without NUL bytes');
   }
