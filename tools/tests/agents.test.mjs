@@ -47,6 +47,14 @@ test('roster settings are optional, and unknown or loosening values fail', () =>
   assert.match(validateAgents({ ...base, settings: { unmanaged_authors: ['a', 'a'] } })[0] ?? '', /unmanaged_authors/);
   assert.match(validateAgents({ ...base, settings: { keyd_team_id: 'short' } })[0] ?? '', /keyd_team_id/);
   assert.match(validateAgents({ ...base, settings: { keyd_identifier: 'any-developer-id' } })[0] ?? '', /keyd_identifier/);
+  const key = { name: 'yubikey', store: 'ssh', alg: 'sshsig', fingerprint: `SHA256:${'A'.repeat(43)}` };
+  const keydKey = { name: 'mac', store: 'keyd', alg: 'ed25519', fingerprint: `SHA256:${'B'.repeat(43)}` };
+  assert.deepEqual(validateAgents({ ...base, settings: { owner_keys: [key, keydKey] } }), []);
+  for (const owner_keys of [[], [key, { ...key, name: 'b', fingerprint: `SHA256:${'C'.repeat(43)}` }, { ...keydKey, name: 'c', fingerprint: `SHA256:${'D'.repeat(43)}` }, { ...keydKey, name: 'd', fingerprint: `SHA256:${'E'.repeat(43)}` }, { ...keydKey, name: 'e', fingerprint: `SHA256:${'F'.repeat(43)}` }],
+    'yubikey', [null], [{ ...key, publicKey: 'sk-ssh-ed25519@openssh.com AAAA' }], [{ ...key, name: 'YubiKey' }], [{ ...key, store: 'phone' }],
+    [{ ...key, alg: 'ed25519' }], [{ ...key, fingerprint: 'SHA256:short' }], [key, { ...key, name: 'other' }], [key, { ...keydKey, name: key.name }]]) {
+    assert.match(validateAgents({ ...base, settings: { owner_keys } })[0] ?? '', /owner_keys/, JSON.stringify(owner_keys));
+  }
   assert.match(validateAgents({ ...base, settings: { spaces_root: 'relative' } })[0] ?? '', /spaces_root/);
   assert.match(validateAgents({ ...base, settings: { spaces_root: '/tmp/agent\0spaces' } })[0] ?? '', /absolute path without NUL bytes/);
   for (const spaces_root of ['/Users/agent/spaces', 'C:\\agent-spaces', 'D:/agent-spaces', '\\\\server\\share\\spaces']) {

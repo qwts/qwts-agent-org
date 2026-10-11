@@ -22,8 +22,9 @@ const DAEMON_PREFERENCES = new Set(['off', 'prefer', 'required']);
 // (agent-bot organization profile `settings`). The runtime validates them again
 // against its own schema; this keeps a typo from reaching a published profile.
 export const PROFILE_SETTINGS = Object.freeze([
-  'spaces_root', 'daemon_preference', 'unmanaged_authors', 'keyd_team_id', 'keyd_identifier',
+  'spaces_root', 'daemon_preference', 'unmanaged_authors', 'keyd_team_id', 'keyd_identifier', 'owner_keys',
 ]);
+const OWNER_KEY_ALG = Object.freeze({ keyd: 'ed25519', ssh: 'sshsig' });
 
 export function loadAgents(agentsPath) {
   let raw;
@@ -132,7 +133,23 @@ function validateSettings(settings) {
       || settings.keyd_identifier === 'any-developer-id')) {
     errors.push('settings.keyd_identifier must be a specific code-signing identifier');
   }
+  // The owner's statement keys, the only ones the org's hosts accept
+  // (agent-bot-identity#753): 1 to 4 distinct { name, store, alg, fingerprint }.
+  if (settings.owner_keys !== undefined && !validOwnerKeys(settings.owner_keys)) {
+    errors.push('settings.owner_keys must list 1 to 4 distinct { name, store, alg, fingerprint } owner keys');
+  }
   return errors;
+}
+
+function validOwnerKeys(keys) {
+  if (!Array.isArray(keys) || keys.length === 0 || keys.length > 4) return false;
+  const valid = keys.every((key) => key !== null && typeof key === 'object' && !Array.isArray(key)
+    && Object.keys(key).sort().join(',') === 'alg,fingerprint,name,store'
+    && typeof key.name === 'string' && /^[a-z0-9][a-z0-9-]{0,31}$/.test(key.name)
+    && Object.hasOwn(OWNER_KEY_ALG, key.store) && key.alg === OWNER_KEY_ALG[key.store]
+    && typeof key.fingerprint === 'string' && /^SHA256:[A-Za-z0-9+/]{43}$/.test(key.fingerprint));
+  return valid && new Set(keys.map((key) => key.name)).size === keys.length
+    && new Set(keys.map((key) => key.fingerprint)).size === keys.length;
 }
 
 // The slugs consumers act on. Retired identities keep their row — the same

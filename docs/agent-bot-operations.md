@@ -61,11 +61,13 @@ with the rest. The runtime reads the following keys at bootstrap:
 | `keyd_identifier` | keyd's code-signing identifier, when it isn't the default |
 | `spaces_root` | Where agent spaces live |
 | `daemon_preference` | How the daemon is supervised |
+| `owner_keys` | The owner's statement keys, 1 to 4 `{ name, store, alg, fingerprint }`; a host accepts only these for owner statements and signed challenges (agent-bot-identity#753) |
 
 The runtime rejects a profile with a settings key it doesn't know, so only
 publish a key once every machine runs an agent-bot release that accepts it.
 `unmanaged_authors` needs 0.10.59 or later. `keyd_team_id` and
-`keyd_identifier` need 0.10.60 or later.
+`keyd_identifier` need 0.10.60 or later. `owner_keys` needs the release
+that includes agent-bot-identity#912.
 
 ## Registering or changing an App
 
