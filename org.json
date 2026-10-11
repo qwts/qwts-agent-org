@@ -34,7 +34,7 @@
     },
     "ci": {
       "repo": "qwts/qwts-agent-ci",
-      "ref": "518948bdfaa8f64a9fc5803f339fe32f8dc0c62e",
+      "ref": "d9f8cf9dbab9adafaccbc743bc44efba5c07d1b1",
       "entry": "README.md",
       "summary": "Governed CI: the ci-policy gate, bounded commands, runtime checks and release lifecycles as pinned composite actions."
     },
