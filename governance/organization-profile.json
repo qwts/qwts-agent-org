@@ -172,5 +172,10 @@
       "harness": "zcode",
       "status": "active"
     }
-  ]
+  ],
+  "settings": {
+    "unmanaged_authors": [
+      "ai9d"
+    ]
+  }
 }
