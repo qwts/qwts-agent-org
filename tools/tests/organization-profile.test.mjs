@@ -78,6 +78,16 @@ test('Vibe is mapped to its harness-level App', () => {
   assert.ok(profile.identities.some(({ slug, harness }) => slug === 'example-vibe-agent' && harness === 'vibe'));
 });
 
+test('Mirror is mapped to its harness-level App', () => {
+  const profile = projectOrganizationProfile(roster(
+    { slug: 'example-mirror-agent', harness: 'mirror', status: 'active' },
+  ));
+  assert.deepEqual(profile.defaults, {
+    mirror: 'example-mirror-agent',
+  });
+  assert.ok(profile.identities.some(({ slug, harness }) => slug === 'example-mirror-agent' && harness === 'mirror'));
+});
+
 test('the default App is account-harness-agent and must be an active matching identity', () => {
   assert.equal(defaultSlugFor('example', 'claude'), 'example-claude-agent');
   const profile = projectOrganizationProfile(roster(claudeDefault, claudeModel));
