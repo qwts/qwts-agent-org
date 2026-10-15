@@ -23,6 +23,7 @@
     "opencode": "qwts-opencode-agent",
     "pi": "qwts-pi-agent",
     "qwen": "qwts-qwen-agent",
+    "vibe": "qwts-vibe-agent",
     "warp": "qwts-warp-agent",
     "zcode": "qwts-zcode-agent"
   },
@@ -155,6 +156,11 @@
     {
       "slug": "qwts-qwen-agent",
       "harness": "qwen",
+      "status": "active"
+    },
+    {
+      "slug": "qwts-vibe-agent",
+      "harness": "vibe",
       "status": "active"
     },
     {

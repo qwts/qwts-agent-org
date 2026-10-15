@@ -42,6 +42,7 @@ export const PROFILE_HARNESS_BY_ROSTER = Object.freeze({
   opencode: 'opencode',
   pi: 'pi',
   'qwen-code': 'qwen',
+  vibe: 'vibe',
   warp: 'warp',
   zcode: 'zcode',
   amp: 'amp',
