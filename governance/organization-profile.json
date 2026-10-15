@@ -19,6 +19,7 @@
     "grok": "qwts-grok-agent",
     "hermes": "qwts-hermes-agent",
     "kiro": "qwts-kiro-agent",
+    "mirror": "qwts-mirror-agent",
     "muse": "qwts-muse-agent",
     "opencode": "qwts-opencode-agent",
     "pi": "qwts-pi-agent",
@@ -136,6 +137,11 @@
     {
       "slug": "qwts-kiro-agent",
       "harness": "kiro",
+      "status": "active"
+    },
+    {
+      "slug": "qwts-mirror-agent",
+      "harness": "mirror",
       "status": "active"
     },
     {
