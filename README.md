@@ -20,7 +20,17 @@ Capability repositories have no pointers or subdomains of their own: a name such
 - [Governed repositories](docs/governed-repos.md) — the fleet, generated from the manifest by `tools/repos.mjs`.
 - [GitHub account](docs/github-account.md) — the account tier the fleet lives under and what depends on it.
 - [Agent bot organization operations](docs/agent-bot-operations.md) — registering, verifying, and handling incidents around the agent Apps in the roster; moved here from agent-sop.
+- [Agent onboarding and standing operating conventions](docs/onboarding.md) — first-time setup for a new harness or machine and the standing operating conventions every agent follows.
 - [AGENTS.md](AGENTS.md) — agent context for this repository.
+
+## Runtime model
+
+| Surface | What it governs | Canonical home |
+| --- | --- | --- |
+| Soul model | One long-lived soul per agent, package `AGENTS.md` as standing instructions, task worktrees linked and pinned to the soul (`agentBot.agentId`), dream as owner-gated consolidation, and retirement of task-scoped souls after merge (`soul remove`) | [`qwts/agent-bot-identity`](https://github.com/qwts/agent-bot-identity) ([soul packages](https://github.com/qwts/agent-bot-identity/blob/main/docs/soul-package.md), [joining](https://github.com/qwts/agent-bot-identity/blob/main/docs/joining.md), [soul homes](https://github.com/qwts/agent-bot-identity/blob/main/docs/soul-homes.md), [dream maintenance](https://github.com/qwts/agent-bot-identity/blob/main/docs/soul-skill-dream-design.md)) |
+| GitHub App identity and `gh` shim | Per-harness GitHub App roster, `pass-cli` credential provisioning (`ensure-private-key`), `GH_AGENT_APP` token minting, Web-Flow verified commits (`signed-commit`), and the fail-closed `gh` shim | [`qwts/agent-bot-identity`](https://github.com/qwts/agent-bot-identity), [Agent bot organization operations](docs/agent-bot-operations.md), and [Agent onboarding and standing operating conventions](docs/onboarding.md) |
+| CI policy | `ci-policy` gate, required status checks, bounded commands, and release lifecycles across governed repositories | [`qwts/qwts-agent-ci`](https://github.com/qwts/qwts-agent-ci) |
+| Machine setup | Self-tapped Homebrew formula, catalog app provisioning, and local machine setup | [`qwts/managed-machine`](https://github.com/qwts/managed-machine) |
 
 ## Pending
 

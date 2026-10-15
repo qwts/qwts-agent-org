@@ -27,7 +27,7 @@ are subordinate to the owner; none of them may veto an explicit owner directive.
 
 ## What this repository is
 
-The qwts instance of the agent-org template: `org.json` (identity, the pinned SOP source, the capability map), the fleet's governance data under `governance/`, the validators under `tools/`, and the docs that define the contract. Map: [README.md](README.md).
+The qwts instance of the agent-org template: `org.json` (identity, the pinned SOP source, the capability map), the fleet's governance data under `governance/`, the validators under `tools/`, and the docs that define the contract. Map: [README.md](README.md) ([Runtime model](README.md#runtime-model), [Agent onboarding and standing operating conventions](docs/onboarding.md)).
 
 ## What is specific to this repository
 
