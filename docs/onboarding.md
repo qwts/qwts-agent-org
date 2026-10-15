@@ -20,10 +20,12 @@ Treat onboarding like a new teammate's first-day orientation:
 5. **Know where each surface onboards:**
    - **CI policy (`qwts/qwts-agent-ci`):** Shared CI policy and composite actions for governed repositories that adopt shared CI (`sharedCi: true` in [`governance/repos.json`](../governance/repos.json)), plus repository-specific gates (such as `npm run check`, `npm test`, and `npm run lint:markdown` here, or `changes/` changelog fragments in `qwts/agent-bot-identity`).
    - **Development environment and org governance (`qwts/qwts-agent-org` and `qwts/agent-sop`):** Register the harness's GitHub App row in [`governance/agents.json`](../governance/agents.json), install the App across active and onboarding repositories in [`governance/repos.json`](../governance/repos.json), and regenerate [`governance/organization-profile.json`](../governance/organization-profile.json) with `node tools/organization-profile.mjs --write` (or `node tools/repos.mjs --write`).
-   - **Identity runtime and `gh` shim (`qwts/agent-bot-identity`):** Confirm `pass-cli` access to the `Agent Identities` vault, restore credentials with `agent-bot ensure-private-key --app <slug>` (populating the managed App credential store or legacy `~/.config/<slug>/{app-id,private-key.pem}`), verify the first token mint via `GH_AGENT_APP=<slug>` and GraphQL viewer login (without triggering the unmarked `mint-token --app <slug>` owner-approval dialog), install the fail-closed `gh` shim (`agent-bot install-gh-shim` or `agent-bot bootstrap --with-gh-shim`), and spawn the agent's canonical long-lived soul from the `Genius` template (`agent-bot soul templates --json`, then `agent-bot soul spawn <template-path> --name <name> --harness <harness>`).
+   - **Identity runtime and `gh` shim (`qwts/agent-bot-identity`):** Confirm `pass-cli` access to the `Agent Identities` vault, install the fail-closed `gh` shim (`agent-bot install-gh-shim` or `agent-bot bootstrap --with-gh-shim`), and spawn the agent's canonical long-lived soul from the `Genius` template (`agent-bot soul templates --json`, then `agent-bot soul spawn <template-path> --name <name> --harness <harness>`). Provisioning and first-mint prerequisites depend on the App's credential backend (`store` in `config.json`):
+     - **`agent-bot-keyd` (`store: "keyd"`, shipped with GeniusBar):** `ensure-private-key` refuses `keyd`-held credentials (`keyd-held`), and `mint-token` routes through `mintThroughDaemon`, which rejects callers without a live daemon binding (`<git-dir>/agent-binding.json`). Join and bind the canonical soul in a linked worktree first (`agent-bot join --name <name> --harness <harness> --soul <agent-id>`, MCP `bind`, or `agent-bot setup-worktree <slug>`) before verifying the first token mint.
+     - **Locally readable credential stores (`file`, `keychain`, `pass-cli`, or legacy `~/.config/<slug>/{app-id,private-key.pem}`):** Restore credentials with `agent-bot ensure-private-key --app <slug>` and verify the first token mint via `GH_AGENT_APP=<slug>` and GraphQL viewer login (without triggering the unmarked `mint-token --app <slug>` owner-approval dialog).
    - **Machine setup (`qwts/managed-machine`):** Host packages, catalog applications, and local machine setup via the `managed-machine` formula.
 
-To verify the first token mint cleanly during setup:
+To verify the first token mint cleanly during setup (from inside the bound worktree when the App is `keyd`-backed, or directly after `ensure-private-key` for a locally readable store):
 
 ```bash
 GH_TOKEN="$(GH_AGENT_APP=<slug> agent-bot mint-token)" || exit 1
@@ -48,14 +50,16 @@ unset GH_TOKEN
 6. **`mint-token` and `gh` shim token contract.**
    - Always pass `GH_AGENT_APP=<slug>` (or run inside a pinned worktree) when calling `agent-bot mint-token`; never call `agent-bot mint-token --app <slug>` from an unpinned, unmarked context, which fires the macOS owner-approval gate on every invocation.
    - Whenever any soul marker (`GH_AGENT_APP`, `agentBot.app`, `AGENT_BOT_ID`, `agentBot.agentId`, or `<git-dir>/agent-binding.json`) is present, the `gh` shim (`~/.local/bin/gh`) sets `SOUL_BOUND=1`, unsets any inherited `GH_TOKEN`, and requires a live daemon binding (`<git-dir>/agent-binding.json`) to mint; in an unpinned context without a soul marker, inherited tokens are not used for bot attribution.
-   - When operating without a live daemon binding, mint a token with `GH_AGENT_APP=<slug> agent-bot mint-token`, verify `.data.viewer.login == "<slug>[bot]"` via GraphQL, and invoke the real `gh` binary (for example `/opt/homebrew/bin/gh`) with `GH_TOKEN`:
+   - **Credential backend determines whether a live daemon binding is required to mint:**
+     - For `agent-bot-keyd`-backed Apps (`store: "keyd"`, shipped with GeniusBar), `mint-token` routes through `mintThroughDaemon`, which rejects any caller without a live daemon binding (`<git-dir>/agent-binding.json`). Join and bind the canonical soul in a linked worktree first (`agent-bot join --name <name> --harness <harness> --soul <agent-id>`, MCP `bind`, or `agent-bot setup-worktree <slug>`) before minting or calling `gh`.
+     - For locally readable credential stores (`file`, `keychain`, `pass-cli`, or legacy `~/.config/<slug>/{app-id,private-key.pem}`), if you need to run `gh` without a live daemon binding, mint a token with `GH_AGENT_APP=<slug> agent-bot mint-token`, verify `.data.viewer.login == "<slug>[bot]"` via GraphQL, and invoke the real `gh` binary (for example `/opt/homebrew/bin/gh`) with `GH_TOKEN`:
 
-     ```bash
-     tok="$(GH_AGENT_APP=<slug> agent-bot mint-token)" && \
-     login="$(GH_TOKEN="$tok" /opt/homebrew/bin/gh api graphql -f 'query={viewer{login}}' --jq .data.viewer.login)" && \
-     [ "$login" = "<slug>[bot]" ] && \
-     GH_TOKEN="$tok" /opt/homebrew/bin/gh pr view ...
-     ```
+       ```bash
+       tok="$(GH_AGENT_APP=<slug> agent-bot mint-token)" && \
+       login="$(GH_TOKEN="$tok" /opt/homebrew/bin/gh api graphql -f 'query={viewer{login}}' --jq .data.viewer.login)" && \
+       [ "$login" = "<slug>[bot]" ] && \
+       GH_TOKEN="$tok" /opt/homebrew/bin/gh pr view ...
+       ```
 
 7. **GitHub-verified bot commits (`agent-bot signed-commit`).** Every bot commit on a `qwts` repository must be authored by `<slug>[bot]` and verified via GitHub's Web-Flow API. Commit locally in the bound worktree, then immediately replace the commit and push with `signed-commit`:
 
