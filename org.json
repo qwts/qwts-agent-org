@@ -16,7 +16,7 @@
   "capabilities": {
     "agent-bot": {
       "repo": "qwts/agent-bot-identity",
-      "ref": "0aae907e68946cce654757c36b1c24f1942971a9",
+      "ref": "51bc96fe9ce9f3b9c9d125fe4b2a131f326f76d9",
       "entry": "skills/agent-bot/SKILL.md",
       "summary": "The agent identity runtime: GitHub App identities, tokens, hooks, and the gh shim."
     },
@@ -34,7 +34,7 @@
     },
     "ci": {
       "repo": "qwts/qwts-agent-ci",
-      "ref": "d9f8cf9dbab9adafaccbc743bc44efba5c07d1b1",
+      "ref": "b754c7e2e58bb0d16c39f3bf3a595ff9a85906dd",
       "entry": "README.md",
       "summary": "Governed CI: the ci-policy gate, bounded commands, runtime checks and release lifecycles as pinned composite actions."
     },
