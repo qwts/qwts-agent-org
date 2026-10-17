@@ -20,12 +20,15 @@
     "grok": "qwts-grok-agent",
     "hermes": "qwts-hermes-agent",
     "junie": "qwts-junie-agent",
+    "kilocode": "qwts-kilocode-agent",
     "kiro": "qwts-kiro-agent",
+    "mcode": "qwts-mcode-agent",
     "mirror": "qwts-mirror-agent",
     "muse": "qwts-muse-agent",
     "opencode": "qwts-opencode-agent",
     "pi": "qwts-pi-agent",
     "qwen": "qwts-qwen-agent",
+    "roocode": "qwts-roocode-agent",
     "vibe": "qwts-vibe-agent",
     "warp": "qwts-warp-agent",
     "zcode": "qwts-zcode-agent"
@@ -147,8 +150,18 @@
       "status": "active"
     },
     {
+      "slug": "qwts-kilocode-agent",
+      "harness": "kilocode",
+      "status": "active"
+    },
+    {
       "slug": "qwts-kiro-agent",
       "harness": "kiro",
+      "status": "active"
+    },
+    {
+      "slug": "qwts-mcode-agent",
+      "harness": "mcode",
       "status": "active"
     },
     {
@@ -174,6 +187,11 @@
     {
       "slug": "qwts-qwen-agent",
       "harness": "qwen",
+      "status": "active"
+    },
+    {
+      "slug": "qwts-roocode-agent",
+      "harness": "roocode",
       "status": "active"
     },
     {
