@@ -140,6 +140,18 @@
       "note": "Reflection Mirror agent harness."
     },
     {
+      "slug": "qwts-junie-agent",
+      "harness": "junie",
+      "status": "active",
+      "note": "JetBrains Junie standalone coding agent harness (CLI and IDE integration)."
+    },
+    {
+      "slug": "qwts-commandcode-agent",
+      "harness": "command-code",
+      "status": "active",
+      "note": "Command Code coding agent harness (CLI and desktop app)."
+    },
+    {
       "slug": "qwts-claude-fable-agent",
       "harness": "claude-code",
       "status": "retired",
