@@ -1,12 +1,12 @@
 # qwts-agent-org
 
-The qwts instance of [agent-org](https://github.com/qwts/agent-org), the template for an organization's org repository. This is the one place that says who qwts is, which SOP instance its agents follow (`qwts/qwts-agent-sop`), and which repositories hold each capability the fleet relies on — every one pinned to a commit in `org.json`. The tooling, docs, CI, and metadata are the template's, unchanged; the data in `org.json` and under `governance/` is real. Created from the template at its first commit; the governance data moved here verbatim from `qwts/agent-sop` at commit `ed5c5d8f7aadba6eefa41a7fd17b076601530848` under qwts/agent-sop#371 and qwts/agent-sop#372.
+The qwts instance of [agent-org](https://github.com/qwts/agent-org), the template for an organization's org repository. This is the one place that says who qwts is, which SOP instance its agents follow (`qwts/qwts-agent-sop`), and which repositories hold each capability the fleet relies on — capabilities pinned to commits in `org.json`, with live SOP discovery. The tooling and documentation include the live-governance delta; the data in `org.json` and under `governance/` is real. Created from the template at its first commit; the governance data moved here verbatim from `qwts/agent-sop` at commit `ed5c5d8f7aadba6eefa41a7fd17b076601530848` under qwts/agent-sop#371 and qwts/agent-sop#372.
 
 ## The contract
 
 | File | What it holds | Read by |
 | --- | --- | --- |
-| `org.json` | Identity, the pinned SOP source, and the capability map | Agents resolving the organization; `tools/org.mjs` validates it |
+| `org.json` | Identity, the live SOP source, and the capability map | Agents resolving the organization; `tools/org.mjs` validates it |
 | `governance/repos.json` | The manifest of governed repositories | `tools/repos.mjs`, which also renders the table in `docs/governed-repos.md` |
 | `governance/agents.json` | The GitHub App roster: one row per agent identity | `tools/organization-profile.mjs`, which projects it into the profile |
 | `governance/organization-profile.json` | The secret-free projection the agent identity runtime bootstraps machines from | `agent-bot bootstrap --profile`, fetched by managed-machine |

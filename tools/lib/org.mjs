@@ -110,7 +110,8 @@ function validateEntries(section, entries, errors) {
     if (typeof entry.repo !== 'string' || !OWNER_NAME.test(entry.repo)) {
       errors.push(`${where}.repo must be owner/name (got ${JSON.stringify(entry.repo)})`);
     }
-    if (typeof entry.ref !== 'string' || !COMMIT_SHA.test(entry.ref)) {
+    if (!(section === 'sources' && name === 'sop' && entry.ref === undefined)
+      && (typeof entry.ref !== 'string' || !COMMIT_SHA.test(entry.ref))) {
       errors.push(`${where}.ref must be a 40-hex commit SHA (got ${JSON.stringify(entry.ref)})`);
     }
     if (!isRelativePath(entry.entry)) {
