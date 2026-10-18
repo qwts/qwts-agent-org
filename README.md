@@ -1,6 +1,6 @@
 # qwts-agent-org
 
-The qwts instance of [agent-org](https://github.com/qwts/agent-org), the template for an organization's org repository. This is the one place that says who qwts is, which SOP instance its agents follow (`qwts/qwts-agent-sop`), and which repositories hold each capability the fleet relies on — capabilities pinned to commits in `org.json`, with live SOP discovery. The tooling and documentation include the live-governance delta; the data in `org.json` and under `governance/` is real. Created from the template at its first commit; the governance data moved here verbatim from `qwts/agent-sop` at commit `ed5c5d8f7aadba6eefa41a7fd17b076601530848` under qwts/agent-sop#371 and qwts/agent-sop#372.
+The qwts instance of [agent-org](https://github.com/qwts/agent-org), the template for an organization's org repository. This is the one place that says who qwts is, which SOP instance its agents follow (`qwts/qwts-agent-sop`), and which repositories hold pinned shared capabilities in `org.json`, with live SOP discovery and installed runtime bundles. The tooling and documentation include the live-governance delta; the data in `org.json` and under `governance/` is real. Created from the template at its first commit; the governance data moved here verbatim from `qwts/agent-sop` at commit `ed5c5d8f7aadba6eefa41a7fd17b076601530848` under qwts/agent-sop#371 and qwts/agent-sop#372.
 
 ## The contract
 
@@ -11,7 +11,7 @@ The qwts instance of [agent-org](https://github.com/qwts/agent-org), the templat
 | `governance/agents.json` | The GitHub App roster: one row per agent identity | `tools/organization-profile.mjs`, which projects it into the profile |
 | `governance/organization-profile.json` | The secret-free projection the agent identity runtime bootstraps machines from | `agent-bot bootstrap --profile`, fetched by managed-machine |
 
-Capability repositories have no pointers or subdomains of their own: a name such as `agent-bot` or `aca` resolves through `org.json` to a repository, a commit, and an entry file. Moving a capability is a reviewed edit of one file. `npm run check` validates all four files and the derived table (`node tools/org.mjs`, `node tools/repos.mjs check`, `node tools/organization-profile.mjs`); `npm test` runs the validators' tests; CI runs both plus `npm run lint:markdown` on every pull request. Editing the manifest or the roster is followed by `node tools/repos.mjs --write`, which regenerates the table and the profile together.
+Capability repositories have no pointers or subdomains of their own: a name such as `ci` or `docs-gov` resolves through `org.json` to a repository, a commit, and an entry file. Moving a capability is a reviewed edit of one file. `npm run check` validates all four files and the derived table (`node tools/org.mjs`, `node tools/repos.mjs check`, `node tools/organization-profile.mjs`); `npm test` runs the validators' tests; CI runs both plus `npm run lint:markdown` on every pull request. Editing the manifest or the roster is followed by `node tools/repos.mjs --write`, which regenerates the table and the profile together.
 
 ## Documents
 
@@ -32,4 +32,12 @@ Capability repositories have no pointers or subdomains of their own: a name such
 
 ## Pending
 
-`org.json` maps seven capabilities, each pinned to a commit: `agent-bot` (`qwts/agent-bot-identity`), `managed-machine` (`qwts/managed-machine`), `aca` (`qwts/agentic-code-analysis`), `ci` (`qwts/qwts-agent-ci`), `docs-gov` (`qwts/qwts-agent-docs-gov`), `inventory` (`qwts/qwts-agent-inventory`), and `sdlc` (`qwts/qwts-agent-sdlc`). Moving a pin is a reviewed change to this file.
+`org.json` maps six capabilities, each pinned to a commit: `managed-machine` (`qwts/managed-machine`), `aca` (`qwts/agentic-code-analysis`), `ci` (`qwts/qwts-agent-ci`), `docs-gov` (`qwts/qwts-agent-docs-gov`), `inventory` (`qwts/qwts-agent-inventory`), and `sdlc` (`qwts/qwts-agent-sdlc`). Moving a pin is a reviewed change to this file.
+
+## Runtime skill discovery
+
+`agent-bot` (including `agent-space`) and `agent-comms` supply operational
+guidance from their installed CLI bundles. They are outside the capability
+pin map; follow [installed runtime guidance](docs/config.md#installed-runtime-guidance).
+Record the installed version and source provenance, check the bundled skill's
+compatibility range, and manage upgrades through the release/install process.
