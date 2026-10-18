@@ -4,9 +4,11 @@ This runbook covers only the `qwts` policy and incident boundary around agent
 Apps. Runtime installation, CLI behavior, hooks, credentials on disk, and
 troubleshooting are owned by
 [`agent-bot-identity`](https://github.com/qwts/agent-bot-identity).
-The roster and permission model are in
-[agent bot identity governance](https://github.com/qwts/qwts-agent-sop/blob/main/docs/reference/agent-bot-identity.md)
-in the selected current SOP snapshot.
+For the roster and permission model, resolve `repos.sop` as described in
+[configuration](config.md), record that repository and commit, and read
+`https://github.com/<resolved-sop-repository>/blob/<resolved-sop-commit>/docs/reference/agent-bot-identity.md`
+with those values substituted. Use that snapshot throughout the operation,
+including historical SOP selections.
 
 ## Cold-start organization profile
 
