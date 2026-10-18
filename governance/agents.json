@@ -152,6 +152,24 @@
       "note": "Command Code coding agent harness (CLI and desktop app)."
     },
     {
+      "slug": "qwts-mcode-agent",
+      "harness": "mcode",
+      "status": "active",
+      "note": "MiniMax Code CLI coding agent harness."
+    },
+    {
+      "slug": "qwts-kilocode-agent",
+      "harness": "kilocode",
+      "status": "active",
+      "note": "Kilo Code coding agent harness."
+    },
+    {
+      "slug": "qwts-roocode-agent",
+      "harness": "roocode",
+      "status": "active",
+      "note": "Roo Code coding agent harness."
+    },
+    {
       "slug": "qwts-claude-fable-agent",
       "harness": "claude-code",
       "status": "retired",
