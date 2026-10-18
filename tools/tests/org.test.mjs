@@ -116,7 +116,14 @@ function runCli(args) {
 test('the CLI passes on this repository and names what it resolved', () => {
   const result = runCli(['--root', ROOT]);
   assert.equal(result.exitCode, 0, result.output);
-  assert.match(result.output, /org\.json valid: organization \S+ \(account \S+\), sop \S+@[0-9a-f]{7}/);
+  assert.match(result.output, /org\.json valid: organization \S+ \(account \S+\), sop \S+@HEAD/);
+});
+
+test('the CLI labels a legacy SOP ref as a baseline, not a live head', () => {
+  const result = runCli(['check', '--root', FIXTURES, '--org', 'valid.json']);
+  assert.equal(result.exitCode, 0, result.output);
+  assert.match(result.output, /sop example\/example-agent-sop@0000000 \(legacy baseline\)/);
+  assert.doesNotMatch(result.output, /@HEAD/);
 });
 
 test('the CLI prints each finding and exits 1 on an invalid file', () => {
@@ -129,4 +136,16 @@ test('the CLI prints each finding and exits 1 on an invalid file', () => {
 test('the CLI exits 1 when org.json is missing and 2 on an unknown argument', () => {
   assert.equal(runCli(['--root', FIXTURES, '--org', 'nope.json']).exitCode, 1);
   assert.equal(runCli(['--bogus']).exitCode, 2);
+});
+
+
+test('live SOP selectors omit ref, while other sources and capabilities still require pins', () => {
+  const org = JSON.parse(readFileSync(path.join(FIXTURES, 'valid.json'), 'utf8'));
+  delete org.sources.sop.ref;
+  assert.deepEqual(validateOrg(org, { root: FIXTURES }), []);
+  org.sources.other = { ...org.sources.sop };
+  assert.ok(validateOrg(org, { root: FIXTURES }).some(message => message.includes('sources.other.ref')));
+  delete org.sources.other;
+  delete org.capabilities.ci.ref;
+  assert.ok(validateOrg(org, { root: FIXTURES }).some(message => message.includes('capabilities.ci.ref')));
 });

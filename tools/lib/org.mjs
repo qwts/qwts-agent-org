@@ -3,9 +3,11 @@
 // `org.json` is the org repository's identity file: who the organization is,
 // the SOP instance its agents follow, and the capability map — which
 // repository holds each capability, at which commit, and where to start
-// reading. Every `ref` is a full commit SHA so nothing an agent resolves from
-// here can move underneath it; the only moving pointer is the local
-// `config.toml` that names this repository.
+// reading. Every supplied `ref` is a full commit SHA. Only sources.sop.ref
+// may be omitted: the runtime discovers the SOP's current default branch,
+// while a legacy SOP ref records provenance rather than freezing live policy.
+// Capabilities and other sources require immutable refs. Live org/SOP heads
+// are resolved once per operation; content reads use those exact commits.
 //
 // Same discipline as the governance validators: stdlib only, the validator
 // returns problems rather than printing, and unknown fields fail rather than
@@ -110,7 +112,8 @@ function validateEntries(section, entries, errors) {
     if (typeof entry.repo !== 'string' || !OWNER_NAME.test(entry.repo)) {
       errors.push(`${where}.repo must be owner/name (got ${JSON.stringify(entry.repo)})`);
     }
-    if (typeof entry.ref !== 'string' || !COMMIT_SHA.test(entry.ref)) {
+    if (!(section === 'sources' && name === 'sop' && entry.ref === undefined)
+      && (typeof entry.ref !== 'string' || !COMMIT_SHA.test(entry.ref))) {
       errors.push(`${where}.ref must be a 40-hex commit SHA (got ${JSON.stringify(entry.ref)})`);
     }
     if (!isRelativePath(entry.entry)) {

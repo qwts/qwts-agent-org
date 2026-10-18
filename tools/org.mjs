@@ -58,7 +58,7 @@ function main() {
   const sop = org.sources.sop;
   console.log(
     `${orgRel} valid: organization ${org.organization.id} (account ${org.organization.account}), ` +
-      `sop ${sop.repo}@${sop.ref.slice(0, 7)}, ${names.length} capabilit${names.length === 1 ? 'y' : 'ies'}` +
+      `sop ${sop.repo}@${sop.ref ? `${sop.ref.slice(0, 7)} (legacy baseline)` : 'HEAD'}, ${names.length} capabilit${names.length === 1 ? 'y' : 'ies'}` +
       (names.length ? ` (${names.join(', ')})` : '') +
       '.',
   );
