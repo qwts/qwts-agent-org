@@ -119,6 +119,13 @@ test('the CLI passes on this repository and names what it resolved', () => {
   assert.match(result.output, /org\.json valid: organization \S+ \(account \S+\), sop \S+@HEAD/);
 });
 
+test('the CLI labels a legacy SOP ref as a baseline, not a live head', () => {
+  const result = runCli(['check', '--root', FIXTURES, '--org', 'valid.json']);
+  assert.equal(result.exitCode, 0, result.output);
+  assert.match(result.output, /sop example\/example-agent-sop@0000000 \(legacy baseline\)/);
+  assert.doesNotMatch(result.output, /@HEAD/);
+});
+
 test('the CLI prints each finding and exits 1 on an invalid file', () => {
   const result = runCli(['check', '--root', FIXTURES, '--org', 'capability-fields.json']);
   assert.equal(result.exitCode, 1);
