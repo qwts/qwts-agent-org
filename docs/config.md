@@ -62,3 +62,14 @@ fresh discovery does not reactivate or authorize them. CLI skill bundles
 remain paired with the installed executable. SOP-owned relative skill links
 are read from the resolved SOP snapshot; external capability links remain
 pinned.
+
+## Installed runtime guidance
+
+`agent-bot` and `agent-comms` use the skill bundled with the installed
+executable. They have no capability version pin in `org.json`. Read
+`agent-bot skill agent-bot` (or `agent-bot skill agent-space` for work-area
+placement), and `agent-comms skill`; record each CLI's `--version` and
+`skill path` provenance. Source repository links locate the projects; they
+do not select operational guidance. Installation and upgrades remain part
+of the release/install process. Existing capability refs still require
+immutable commits; schema version 1 is unchanged.

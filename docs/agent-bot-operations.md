@@ -3,10 +3,12 @@
 This runbook covers only the `qwts` policy and incident boundary around agent
 Apps. Runtime installation, CLI behavior, hooks, credentials on disk, and
 troubleshooting are owned by
-[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity/tree/9ff7ce00b6a6945c7f249cf7a6ebf37cf58e86ee).
-The roster and permission model are in
-[agent bot identity governance](https://github.com/qwts/agent-sop/blob/bf072f7ab2ed077af781fdc3f754425c43f197c5/docs/reference/agent-bot-identity.md)
-in agent-sop.
+[`agent-bot-identity`](https://github.com/qwts/agent-bot-identity).
+For the roster and permission model, resolve `repos.sop` as described in
+[configuration](config.md), record that repository and commit, and read
+`https://github.com/<resolved-sop-repository>/blob/<resolved-sop-commit>/docs/reference/agent-bot-identity.md`
+with those values substituted. Use that snapshot throughout the operation,
+including historical SOP selections.
 
 ## Cold-start organization profile
 
@@ -150,7 +152,8 @@ report.
 - Live GitHub behavior is reported as passing only when token minting, repository
   access, push/PR attribution, and `gh whoami` were actually exercised.
 
-Operational repair commands and detailed failure diagnosis belong in the
-pinned standalone
-[README](https://github.com/qwts/agent-bot-identity/blob/9ff7ce00b6a6945c7f249cf7a6ebf37cf58e86ee/README.md),
-not in this governance repository.
+Operational repair commands and detailed failure diagnosis come from the
+installed `agent-bot skill agent-bot` bundle. Verify the executable version
+and record `agent-bot skill path` provenance; org/SOP holds no runtime
+version pin. The [source repository](https://github.com/qwts/agent-bot-identity)
+locates development and release information.
