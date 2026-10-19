@@ -216,6 +216,12 @@
       "harness": "vscode",
       "status": "retired",
       "note": "Retired 2026-09-01 with the move to harness-level identity (ENG-0339)."
+    },
+    {
+      "slug": "trueline-mcode-agent",
+      "harness": "mcode",
+      "status": "active",
+      "note": "MiniMax Code CLI coding agent harness for the true-line organization."
     }
   ],
   "settings": {
