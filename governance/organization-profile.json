@@ -213,6 +213,11 @@
       "slug": "qwts-zcode-agent",
       "harness": "zcode",
       "status": "active"
+    },
+    {
+      "slug": "trueline-mcode-agent",
+      "harness": "mcode",
+      "status": "active"
     }
   ],
   "settings": {
