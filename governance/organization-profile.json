@@ -215,8 +215,28 @@
       "status": "active"
     },
     {
+      "slug": "trueline-claude-agent",
+      "harness": "claude",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-codex-agent",
+      "harness": "codex",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-grok-agent",
+      "harness": "grok",
+      "status": "active"
+    },
+    {
       "slug": "trueline-mcode-agent",
       "harness": "mcode",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-muse-agent",
+      "harness": "muse",
       "status": "active"
     }
   ],
