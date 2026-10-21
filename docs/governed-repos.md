@@ -28,7 +28,7 @@ The human-readable view of `governance/repos.json`, the manifest of repositories
 | `diagram-dreamer` | public | active | no | managed | Playwright gates per ?state= fixture, axe-core at WCAG 2.1 AA, and a pseudo-localization build. |
 | `jwt-decoder` | public | active | no | managed | — |
 | `moonsweeper` | public | active | no | managed | — |
-| `managed-machine` | private | active | no | disabled | — |
+| `managed-machine` | public | active | no | disabled | — |
 | `managed-machine-config` | private | active | no | disabled | — |
 | `qwts-agent-ci` | public | onboarding | yes | disabled | — |
 | `qwts-agent-docs-gov` | public | onboarding | no | disabled | — |
