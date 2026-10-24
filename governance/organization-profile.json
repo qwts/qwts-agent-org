@@ -21,6 +21,7 @@
     "hermes": "qwts-hermes-agent",
     "junie": "qwts-junie-agent",
     "kilocode": "qwts-kilocode-agent",
+    "kimicode": "qwts-kimicode-agent",
     "kiro": "qwts-kiro-agent",
     "mcode": "qwts-mcode-agent",
     "mirror": "qwts-mirror-agent",
@@ -155,6 +156,11 @@
       "status": "active"
     },
     {
+      "slug": "qwts-kimicode-agent",
+      "harness": "kimicode",
+      "status": "active"
+    },
+    {
       "slug": "qwts-kiro-agent",
       "harness": "kiro",
       "status": "active"
@@ -227,6 +233,11 @@
     {
       "slug": "trueline-grok-agent",
       "harness": "grok",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-kimicode-agent",
+      "harness": "kimicode",
       "status": "active"
     },
     {

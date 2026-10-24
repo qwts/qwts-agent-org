@@ -44,6 +44,7 @@ export const PROFILE_HARNESS_BY_ROSTER = Object.freeze({
   mirror: 'mirror',
   mcode: 'mcode',
   kilocode: 'kilocode',
+  kimicode: 'kimicode',
   roocode: 'roocode',
   opencode: 'opencode',
   pi: 'pi',
