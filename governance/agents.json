@@ -74,6 +74,18 @@
       "note": "Grok Build (xAI) agent harness."
     },
     {
+      "slug": "qwts-grokbot-agent",
+      "harness": "grok",
+      "status": "active",
+      "note": "Grok Bot desktop app identity (qwts-owned App). Runtime harness grok; not the harness default."
+    },
+    {
+      "slug": "trueline-grokbot-agent",
+      "harness": "grok",
+      "status": "active",
+      "note": "Grok Bot desktop app identity owned by the true-line org; usable only on true-line repositories. Runtime harness grok; not the harness default."
+    },
+    {
       "slug": "qwts-hermes-agent",
       "harness": "hermes",
       "status": "active",
