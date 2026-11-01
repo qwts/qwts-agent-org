@@ -16,7 +16,7 @@ import path from 'node:path';
 
 export const VALID_AGENT_STATUS = ['active', 'retired'];
 const AGENT_FIELDS = new Set(['slug', 'harness', 'status', 'note']);
-const ROSTER_FIELDS = new Set(['account', 'agents', 'settings']);
+const ROSTER_FIELDS = new Set(['account', 'default_prefix', 'agents', 'settings']);
 const DAEMON_PREFERENCES = new Set(['off', 'prefer', 'required']);
 // Machine settings the organization profile carries for the runtime
 // (agent-bot organization profile `settings`). The runtime validates them again
@@ -51,6 +51,9 @@ export function validateAgents(roster) {
   }
   if (typeof roster.account !== 'string' || roster.account.trim() === '') {
     errors.push('account must be a non-empty string');
+  }
+  if (roster.default_prefix !== undefined && (typeof roster.default_prefix !== 'string' || !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(roster.default_prefix))) {
+    errors.push('default_prefix must be a lowercase slug prefix when present');
   }
   if (roster.settings !== undefined) errors.push(...validateSettings(roster.settings));
   if (!Array.isArray(roster.agents)) {
