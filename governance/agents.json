@@ -270,6 +270,30 @@
       "harness": "kimicode",
       "status": "active",
       "note": "Kimi Code coding agent harness for the true-line organization."
+    },
+    {
+      "slug": "trueline-cursor-agent",
+      "harness": "cursor",
+      "status": "active",
+      "note": "Cursor agent harness for the true-line organization."
+    },
+    {
+      "slug": "trueline-devin-agent",
+      "harness": "devin",
+      "status": "active",
+      "note": "Devin agent harness for the true-line organization."
+    },
+    {
+      "slug": "trueline-qwen-agent",
+      "harness": "qwen-code",
+      "status": "active",
+      "note": "Qwen Code agent harness for the true-line organization."
+    },
+    {
+      "slug": "trueline-zcode-agent",
+      "harness": "zcode",
+      "status": "active",
+      "note": "Z.AI ZCode agent harness for the true-line organization."
     }
   ],
   "settings": {

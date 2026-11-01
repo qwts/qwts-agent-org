@@ -236,6 +236,16 @@
       "status": "active"
     },
     {
+      "slug": "trueline-cursor-agent",
+      "harness": "cursor",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-devin-agent",
+      "harness": "devin",
+      "status": "active"
+    },
+    {
       "slug": "trueline-grok-agent",
       "harness": "grok",
       "status": "active"
@@ -258,6 +268,16 @@
     {
       "slug": "trueline-muse-agent",
       "harness": "muse",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-qwen-agent",
+      "harness": "qwen",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-zcode-agent",
+      "harness": "zcode",
       "status": "active"
     }
   ],
