@@ -86,11 +86,12 @@ export function projectOrganizationProfile(roster, { organization } = {}) {
   }).sort((left, right) => left.slug.localeCompare(right.slug));
 
   const defaults = {};
+  const defaultPrefix = roster.default_prefix ?? roster.account;
   const activeHarnesses = new Set(
     identities.filter((identity) => identity.status === 'active').map((identity) => identity.harness),
   );
   for (const harness of [...activeHarnesses].sort()) {
-    const slug = defaultSlugFor(roster.account, harness);
+    const slug = defaultSlugFor(defaultPrefix, harness);
     const identity = identities.find((row) => row.slug === slug);
     if (!identity || identity.harness !== harness || identity.status !== 'active') {
       throw new Error(

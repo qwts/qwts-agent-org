@@ -64,7 +64,7 @@ test('every roster slug appears, notes are stripped, and roster harnesses become
   );
   assert.deepEqual(Object.keys(profile.defaults).sort(), [...activeHarnesses].sort());
   for (const [harness, slug] of Object.entries(profile.defaults)) {
-    assert.equal(slug, defaultSlugFor(agents.account, harness));
+    assert.equal(slug, defaultSlugFor(agents.default_prefix ?? agents.account, harness));
   }
 });
 

@@ -4,56 +4,56 @@
   "account_owner": "qwts",
   "minimum_runtime_interface_version": 1,
   "defaults": {
-    "aider": "qwts-aider-agent",
-    "amp": "qwts-amp-agent",
-    "antigravity": "qwts-antigravity-agent",
-    "claude": "qwts-claude-agent",
-    "cline": "qwts-cline-agent",
-    "codex": "qwts-codex-agent",
-    "commandcode": "qwts-commandcode-agent",
-    "copilot": "qwts-copilot-agent",
-    "cursor": "qwts-cursor-agent",
-    "deepseek": "qwts-deepseek-agent",
-    "devin": "qwts-devin-agent",
-    "droid": "qwts-droid-agent",
-    "goose": "qwts-goose-agent",
-    "grok": "qwts-grok-agent",
-    "hermes": "qwts-hermes-agent",
-    "junie": "qwts-junie-agent",
-    "kilocode": "qwts-kilocode-agent",
-    "kimicode": "qwts-kimicode-agent",
-    "kiro": "qwts-kiro-agent",
-    "mcode": "qwts-mcode-agent",
-    "mirror": "qwts-mirror-agent",
-    "muse": "qwts-muse-agent",
-    "opencode": "qwts-opencode-agent",
-    "pi": "qwts-pi-agent",
-    "qwen": "qwts-qwen-agent",
-    "roocode": "qwts-roocode-agent",
-    "vibe": "qwts-vibe-agent",
-    "warp": "qwts-warp-agent",
-    "zcode": "qwts-zcode-agent"
+    "aider": "trueline-aider-agent",
+    "amp": "trueline-amp-agent",
+    "antigravity": "trueline-antigravity-agent",
+    "claude": "trueline-claude-agent",
+    "cline": "trueline-cline-agent",
+    "codex": "trueline-codex-agent",
+    "commandcode": "trueline-commandcode-agent",
+    "copilot": "trueline-copilot-agent",
+    "cursor": "trueline-cursor-agent",
+    "deepseek": "trueline-deepseek-agent",
+    "devin": "trueline-devin-agent",
+    "droid": "trueline-droid-agent",
+    "goose": "trueline-goose-agent",
+    "grok": "trueline-grok-agent",
+    "hermes": "trueline-hermes-agent",
+    "junie": "trueline-junie-agent",
+    "kilocode": "trueline-kilocode-agent",
+    "kimicode": "trueline-kimicode-agent",
+    "kiro": "trueline-kiro-agent",
+    "mcode": "trueline-mcode-agent",
+    "mirror": "trueline-mirror-agent",
+    "muse": "trueline-muse-agent",
+    "opencode": "trueline-opencode-agent",
+    "pi": "trueline-pi-agent",
+    "qwen": "trueline-qwen-agent",
+    "roocode": "trueline-roocode-agent",
+    "vibe": "trueline-vibe-agent",
+    "warp": "trueline-warp-agent",
+    "zcode": "trueline-zcode-agent"
   },
   "identities": [
     {
       "slug": "qwts-aider-agent",
       "harness": "aider",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-amp-agent",
       "harness": "amp",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-antigravity-agent",
       "harness": "antigravity",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-claude-agent",
       "harness": "claude",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-claude-fable-agent",
@@ -78,12 +78,12 @@
     {
       "slug": "qwts-cline-agent",
       "harness": "cline",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-codex-agent",
       "harness": "codex",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-codex-luna-agent",
@@ -103,112 +103,112 @@
     {
       "slug": "qwts-commandcode-agent",
       "harness": "commandcode",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-copilot-agent",
       "harness": "copilot",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-cursor-agent",
       "harness": "cursor",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-deepseek-agent",
       "harness": "deepseek",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-devin-agent",
       "harness": "devin",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-droid-agent",
       "harness": "droid",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-goose-agent",
       "harness": "goose",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-grok-agent",
       "harness": "grok",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-grokbot-agent",
       "harness": "grok",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-hermes-agent",
       "harness": "hermes",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-junie-agent",
       "harness": "junie",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-kilocode-agent",
       "harness": "kilocode",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-kimicode-agent",
       "harness": "kimicode",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-kiro-agent",
       "harness": "kiro",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-mcode-agent",
       "harness": "mcode",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-mirror-agent",
       "harness": "mirror",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-muse-agent",
       "harness": "muse",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-opencode-agent",
       "harness": "opencode",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-pi-agent",
       "harness": "pi",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-qwen-agent",
       "harness": "qwen",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-roocode-agent",
       "harness": "roocode",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-vibe-agent",
       "harness": "vibe",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-vscode-agent",
@@ -226,8 +226,28 @@
       "status": "active"
     },
     {
+      "slug": "trueline-aider-agent",
+      "harness": "aider",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-amp-agent",
+      "harness": "amp",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-antigravity-agent",
+      "harness": "antigravity",
+      "status": "active"
+    },
+    {
       "slug": "trueline-claude-agent",
       "harness": "claude",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-cline-agent",
+      "harness": "cline",
       "status": "active"
     },
     {
@@ -236,13 +256,38 @@
       "status": "active"
     },
     {
+      "slug": "trueline-commandcode-agent",
+      "harness": "commandcode",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-copilot-agent",
+      "harness": "copilot",
+      "status": "active"
+    },
+    {
       "slug": "trueline-cursor-agent",
       "harness": "cursor",
       "status": "active"
     },
     {
+      "slug": "trueline-deepseek-agent",
+      "harness": "deepseek",
+      "status": "active"
+    },
+    {
       "slug": "trueline-devin-agent",
       "harness": "devin",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-droid-agent",
+      "harness": "droid",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-goose-agent",
+      "harness": "goose",
       "status": "active"
     },
     {
@@ -256,8 +301,33 @@
       "status": "active"
     },
     {
+      "slug": "trueline-grokbuild-agent",
+      "harness": "grok",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-hermes-agent",
+      "harness": "hermes",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-junie-agent",
+      "harness": "junie",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-kilocode-agent",
+      "harness": "kilocode",
+      "status": "active"
+    },
+    {
       "slug": "trueline-kimicode-agent",
       "harness": "kimicode",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-kiro-agent",
+      "harness": "kiro",
       "status": "active"
     },
     {
@@ -266,13 +336,43 @@
       "status": "active"
     },
     {
+      "slug": "trueline-mirror-agent",
+      "harness": "mirror",
+      "status": "active"
+    },
+    {
       "slug": "trueline-muse-agent",
       "harness": "muse",
       "status": "active"
     },
     {
+      "slug": "trueline-opencode-agent",
+      "harness": "opencode",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-pi-agent",
+      "harness": "pi",
+      "status": "active"
+    },
+    {
       "slug": "trueline-qwen-agent",
       "harness": "qwen",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-roocode-agent",
+      "harness": "roocode",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-vibe-agent",
+      "harness": "vibe",
+      "status": "active"
+    },
+    {
+      "slug": "trueline-warp-agent",
+      "harness": "warp",
       "status": "active"
     },
     {
