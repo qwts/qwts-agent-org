@@ -119,14 +119,14 @@
     {
       "slug": "qwts-warp-agent",
       "harness": "warp",
-      "status": "active",
-      "note": "Warp Agent local coding harness."
+      "status": "retired",
+      "note": "Warp Agent local coding harness. Retired 2026-11-01 with the cutover to public trueline-*-agent Apps."
     },
     {
       "slug": "qwts-zcode-agent",
       "harness": "zcode",
-      "status": "active",
-      "note": "Z.AI ZCode agent harness."
+      "status": "retired",
+      "note": "Z.AI ZCode agent harness. Retired 2026-11-01 with the cutover to public trueline-*-agent Apps."
     },
     {
       "slug": "qwts-amp-agent",
