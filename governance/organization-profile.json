@@ -218,12 +218,12 @@
     {
       "slug": "qwts-warp-agent",
       "harness": "warp",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "qwts-zcode-agent",
       "harness": "zcode",
-      "status": "active"
+      "status": "retired"
     },
     {
       "slug": "trueline-aider-agent",
